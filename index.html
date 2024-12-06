@@ -1288,6 +1288,23 @@
               }
             });
           }
+
+
+        
+function AtualizaM2(SP){
+
+  atualizarValor("MV_REL_M02",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM3(SP){
+
+  atualizarValor("MV_REL_M03",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+          
+
+          
 // Controle de intervalos ativos (evita múltiplos intervalos para a mesma variável)
 const intervalosAtivos = {};
 
@@ -1346,17 +1363,6 @@ function salvarAlteracoes(id, valor) {
   // Aqui você pode adicionar lógica de backend para persistir o valor
 }
 
-function AtualizaM2(SP){
-
-  atualizarValor("MV_REL_M02",(SP/valoresFixos["PIT_3101_MV"].value)*100)
-
-}
-
-function AtualizaM3(SP){
-
-  atualizarValor("MV_REL_M03",(SP/valoresFixos["PIT_3101_MV"].value)*100)
-
-}
 
 function AtualizaM5(SP){
 
