@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Centrais - Mais Energia</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./supmars.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="macro">
+      <br />
+      <div id="tela_combustao_nutri_back">
+        <img src="img/fundo_combustao_Mars.png" alt="" />
+
+        <div class="navbar">
+          Controle das Centrais - Geriba Energy Mog
+          <div
+            style="
+              position: absolute;
+              top: 15px;
+              left: 15px;
+              text-decoration: none;
+            "
+          >
+            <a
+              href="Centrais_UFV.html"
+              style="font-size: 15px; text-decoration: none"
+            >
+              <i
+                class="fa-solid fa-chart-line"
+                style="font-size: 24px; color: rgb(63, 97, 81)"
+              ></i>
+            </a>
+          </div>
+          <div
+            style="
+              position: absolute;
+              top: 15px;
+              left: 55px;
+              text-decoration: none;
+            "
+          >
+            <a
+              href="Comunic_Centrais.html"
+              style="font-size: 15px; text-decoration: none"
+            >
+              <i
+                class="fa-solid fa-tower-broadcast"
+                style="font-size: 24px; color: rgb(63, 97, 81)"
+              ></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="balloon-container">
+          <div class="balloon-fill" id="fill"></div>
+          <div class="percentage" id="percentage">0%</div>
+        </div>
+
+        <div id="vazao">
+          <div class="tag" id="tag1">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="pressao">
+          <div class="tag" id="tag2">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6102">
+          <div class="tag" id="TT6102">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6103">
+          <div class="tag" id="TT6103">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6104">
+          <div class="tag" id="TT6104">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6105">
+          <div class="tag" id="TT6105">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6106">
+          <div class="tag" id="TT6106">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6107">
+          <div class="tag" id="TT6107">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6108">
+          <div class="tag" id="TT6108">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6109">
+          <div class="tag" id="TT6109">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_6110">
+          <div class="tag" id="TT6110">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_5101">
+          <div class="tag" id="TT5101">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="PID_6101_PV">
+          <div class="tag" id="PIT_6101_PV">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="PID_6101_SP">
+          <div class="tag" id="PIT_6101_SP">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="PID_6101_MV">
+          <div class="tag" id="PIT_6101_MV">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="PID_3101_MV">
+          <div class="tag" id="PIT_3101_MV">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="PID_3101_SP">
+          <div class="tag" id="PIT_3101_SP">
+            <input
+            type="number"
+            class="editable-input"
+            value="20"
+             onchange="valoresFixos['PIT_3101_SP'].value = this.value"
+            style="background-color: transparent;
+            border-color:transparent
+            "
+          />
+          </div>
+        </div>
+
+        <div id="FID_2101_SP">
+          <div class="tag" id="FIT_2101_SP">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="FID_2101_PV">
+          <div class="tag" id="FIT_2101_PV">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="FID_2101_MV">
+          <div class="tag" id="FIT_2101_MV">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="A_17_OUT">
+          <div class="tag" id="AI_17_OUT">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_M02">
+          <div class="tag" id="STP_REL_M02">
+            <input
+              type="number"
+              class="editable-input"
+              value="50"
+              onchange="AtualizaM2(this.value)"
+            />
+          </div>
+        </div>
+
+        <div id="_MV_REL_M02">
+          <div class="tag" id="MV_REL_M02">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_M03">
+          <div class="tag" id="STP_REL_M03">
+           <input
+              type="number"
+              class="editable-input"
+              value="50"
+              onchange="AtualizaM3(this.value)"
+            />
+          </div>
+          </div>
+        </div>
+
+        <div id="_MV_REL_M03">
+          <div class="tag" id="MV_REL_M03">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_M05">
+          <div class="tag" id="STP_REL_M05">
+            <input
+            type="number"
+            class="editable-input"
+            value="100"
+            onchange="AtualizaM5(this.value)"
+          />
+          </div>
+        </div>
+
+        <div id="_MV_REL_M05">
+          <div class="tag" id="MV_REL_M05">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_M06">
+          <div class="tag" id="STP_REL_M06">
+            <input
+              type="number"
+              class="editable-input"
+              value="20"
+              onchange="AtualizaM6(this.value)"
+            />
+          </div>
+        </div>
+
+        <div id="_MV_REL_M06">
+          <div class="tag" id="MV_REL_M06">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_RSC1">
+          <div class="tag" id="STP_REL_RSC1">
+            <input
+            type="number"
+            class="editable-input"
+            value="95"
+             onchange="AtualizaM7(this.value)"
+          />
+          </div>
+        </div>
+
+        <div id="_MV_REL_RSC1">
+          <div class="tag" id="MV_REL_RSC1">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_RSC2">
+          <div class="tag" id="STP_REL_RSC2">
+            <input
+              type="number"
+              class="editable-input"
+              value="100"
+              onchange="AtualizaM8(this.value)"
+            />
+          </div>
+        </div>
+
+        <div id="_MV_REL_RSC2">
+          <div class="tag" id="MV_REL_RSC2">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_RSC3">
+          <div class="tag" id="STP_REL_RSC3">
+            <input
+            type="number"
+            class="editable-input"
+            value="20"
+               onchange="AtualizaM9(this.value)"
+          />
+          </div>
+        </div>
+
+        <div id="_MV_REL_RSC3">
+          <div class="tag" id="MV_REL_RSC3">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="_STP_REL_RSC4">
+          <div class="tag" id="STP_REL_RSC4">
+            <input
+            type="number"
+            class="editable-input"
+            value="20"
+              onchange="AtualizaM10(this.value)"
+          />
+          </div>
+        </div>
+
+        <div id="_MV_REL_RSC4">
+          <div class="tag" id="MV_REL_RSC4">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_7101">
+          <div class="tag" id="TT7101">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_7102">
+          <div class="tag" id="TT7102">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_7103">
+          <div class="tag" id="TT7103">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="TT_7104">
+          <div class="tag" id="TT7104">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div id="nivel_balao">
+          <div class="tag" id="LIT3101">
+            <span class="tag-value">--</span>
+          </div>
+        </div>
+
+        <div onclick="nvBl01()" id="nivel_balao01">
+          <div class="tag" id="NVB_01">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div onclick="nvBl02()" id="nivel_balao02">
+          <div class="tag" id="NVB_02">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div onclick="nvBl03()" id="nivel_balao03">
+          <div class="tag" id="NVB_03">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div onclick="nvBl04()" id="nivel_balao04">
+          <div class="tag" id="NVB_04">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div onclick="nvBl05()" id="nivel_balao05">
+          <div class="tag" id="NVB_05">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div id="Nivel_Silo">
+          <div class="tag" id="LSH6101">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div id="Embuchamento">
+          <div class="tag" id="LSH6103">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <div ondblclick="pshh()" id="PSHH_Pressao">
+          <div class="tag" id="PSHH">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+        </div>
+
+        <a href="index.html" id="voltar">
+          <div><p>Voltar</p></div>
+        </a>
+
+        <!--Status Motores-->
+
+        <!--Status Motor M01-->
+        <div onclick="statusM01_STS_SUP()"> 
+          <div  class="tag" id="M01_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M01"
+            src="./img/m12_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 40px;
+              height: 40px;
+              top: 695px;
+              left: 1590px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M02-->
+        <div>
+          <div class="tag" id="M02_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M02"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 793px;
+              left: 955px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M03-->
+        <div>
+          <div class="tag" id="M03_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M03"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 793px;
+              left: 703px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M04-->
+        <div>
+          <div class="tag" id="M04_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M04"
+            src="./img/m10_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 20px;
+              height: 23px;
+              top: 180px;
+              left: 407px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M05-->
+        <div>
+          <div class="tag" id="M05_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M05"
+            src="./img/m10_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 20px;
+              height: 23px;
+              top: 686px;
+              left: 471px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M06-->
+        <div>
+          <div class="tag" id="M06_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M06"
+            src="./img/m10_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 20px;
+              height: 23px;
+              top: 686px;
+              left: 554px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M07-->
+        <div>
+          <div class="tag" id="M07_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M07"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 489px;
+              left: 369px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M08-->
+        <div>
+          <div class="tag" id="M08_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M08"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 544px;
+              left: 369px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M09-->
+        <div>
+          <div class="tag" id="M09_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M09"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 600px;
+              left: 369px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M10-->
+        <div>
+          <div class="tag" id="M10_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M10"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 32px;
+              height: 22px;
+              top: 652px;
+              left: 369px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M11-->
+        <div>
+          <div class="tag" id="M11_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M11"
+            src="./img/m10_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 20px;
+              height: 23px;
+              top: 306px;
+              left: 454px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M12-->
+        <div>
+          <div class="tag" id="M12_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M12"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 19px;
+              top: 675px;
+              left: 1368px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M13-->
+        <div>
+          <div class="tag" id="M13_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M13"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 19px;
+              top: 670px;
+              left: 1164px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M14-->
+        <div>
+          <div class="tag" id="M14_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M14"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 18px;
+              top: 462px;
+              left: 1053px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M10-->
+        <div>
+          <div class="tag" id="BBA1_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="BBA1"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 18px;
+              top: 342px;
+              left: 1482px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M15-->
+        <div>
+          <div class="tag" id="M15_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M15"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 18px;
+              top: 344px;
+              left: 1063px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M18-->
+        <div>
+          <div class="tag" id="M18_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M18"
+            src="./img/m02_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 18px;
+              top: 587px;
+              left: 1505px;
+            "
+          />
+        </div>
+
+        <!--Status Motor M19-->
+        <div>
+          <div class="tag" id="M19_STS_SUP">
+            <span class="tag-value" style="color: transparent">--</span>
+          </div>
+          <img
+            id="M19"
+            src="./img/m06_desligado.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 28px;
+              height: 18px;
+              top: 587px;
+              left: 1414px;
+            "
+          />
+        </div>
+
+        <!--Status Damper SV6109.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6109_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6109"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 36px;
+              height: 31px;
+              top: 608px;
+              left: 1320px;
+            "
+          />
+        </div>
+
+        <!--Status Damper SV6112.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6112_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6112"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 36px;
+              height: 31px;
+              top: 531px;
+              left: 1308px;
+            "
+          />
+        </div>
+
+        <!--Status Damper SV6106.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6106_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6106"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 46px;
+              height: 40px;
+              top: 641px;
+              left: 1712px;
+            "
+          />
+        </div>
+
+        <!--Status Damper SV6110.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6110_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6110"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 36px;
+              height: 31px;
+              top: 550px;
+              left: 1607px;
+            "
+          />
+        </div>
+
+        <!--Status Damper SV6108.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6108_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6108"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 26px;
+              height: 31px;
+              top: 724px;
+              left: 678px;
+              transform: rotate(90deg);
+            "
+            ;
+          />
+        </div>
+
+        <!--Status Damper SV6107.STS_SUP-->
+        <div>
+          <div class="tag" id="SV6107_STS_SUP">
+            <span class="tag-value" style="color: black">--</span>
+          </div>
+          <img
+            id="SV6107"
+            src="./img/DamperAberto.png"
+            alt=""
+            style="
+              position: absolute;
+              width: 26px;
+              height: 31px;
+              top: 724px;
+              left: 928px;
+              transform: rotate(90deg);
+            "
+            ;
+          />
+        </div>
+        <script>
+          // Valores fixos para todas as variáveis
+          const valoresFixos = {
+            tag1: { value: 7.5, unit: "ton/h" }, // Vazão de Vapor
+            tag2: { value: 12, unit: "bar" }, // Pressão de Vapor
+            LIT3101: { value: 50, unit: "%" }, // Nível do Balão
+            NVB_01: { value: 1, unit: " " },
+            NVB_02: { value: 0, unit: " " },
+            NVB_03: { value: 0, unit: " " },
+            NVB_04: { value: 1, unit: " " },
+            NVB_05: { value: 1, unit: " " },
+            PSHH: { value: 1, unit: "" },
+            LSH6101: { value: 0, unit: "" },
+            LSH6103: { value: 1, unit: "" },
+            TT6102: { value: 101, unit: "ºC" },
+            TT6103: { value: 102, unit: "ºC" },
+            TT6104: { value: 103, unit: "ºC" },
+            TT6105: { value: 104, unit: "ºC" },
+            TT6106: { value: 105, unit: "ºC" },
+            TT6107: { value: 110, unit: "ºC" },
+            TT6108: { value: 156, unit: "ºC" },
+            TT6109: { value: 171, unit: "ºC" },
+            TT6110: { value: 181, unit: "ºC" },
+            TT5101: { value: 191, unit: "ºC" },
+            TT7101: { value: 201, unit: "ºC" },
+            TT7102: { value: 212, unit: "ºC" },
+            TT7103: { value: 223, unit: "ºC" },
+            TT7104: { value: 234, unit: "ºC" },
+            M01_STS_SUP: { value: 1, unit: "" },
+            M02_STS_SUP: { value: 1, unit: "" },
+            M03_STS_SUP: { value: 1, unit: "" },
+            M04_STS_SUP: { value: 1, unit: "" },
+            M05_STS_SUP: { value: 1, unit: "" },
+            M06_STS_SUP: { value: 1, unit: "" },
+            M07_STS_SUP: { value: 1, unit: "" },
+            M08_STS_SUP: { value: 1, unit: "" },
+            M09_STS_SUP: { value: 1, unit: "" },
+            M10_STS_SUP: { value: 1, unit: "" },
+            M11_STS_SUP: { value: 1, unit: "" },
+            M12_STS_SUP: { value: 1, unit: "" },
+            M13_STS_SUP: { value: 1, unit: "" },
+            M14_STS_SUP: { value: 0, unit: "" },
+            M15_STS_SUP: { value: 1, unit: "" },
+            M18_STS_SUP: { value: 0, unit: "" },
+            M19_STS_SUP: { value: 1, unit: "" },
+            PIT_6101_PV: { value: -4, unit: "mmH20" },
+            PIT_6101_SP: { value: -4, unit: "mmH20" },
+            PIT_6101_MV: { value: 50, unit: "%" },
+            FIT_2101_SP: { value: 60, unit: "m³" },
+            FIT_2101_PV: { value: 70, unit: "m³" },
+            AI_17_OUT: { value: 80, unit: "bar" },
+            FIT_2101_MV: { value: 90, unit: "%" },
+            PIT_3101_MV: { value: 100, unit: "%" },
+            PIT_3101_SP: { value: 110, unit: "bar" },
+            STP_REL_M02: { value: 50, unit: "" },
+            STP_REL_M03: { value: 50, unit: "" },
+            STP_REL_M05: { value: 70, unit: "" },
+            STP_REL_M06: { value: 85, unit: "" },
+            STP_REL_RSC1: { value: 95, unit: "" },
+            STP_REL_RSC2: { value: 90, unit: "" },
+            STP_REL_RSC3: { value: 90, unit: "" },
+            STP_REL_RSC4: { value: 95, unit: "" },
+            MV_REL_M02: { value: 50, unit: "" },
+            MV_REL_M03: { value: 50, unit: "" },
+            MV_REL_M05: { value: 85, unit: "" },
+            MV_REL_M06: { value: 70, unit: "" },
+            MV_REL_RSC1: { value: 95, unit: "" },
+            MV_REL_RSC2: { value: 90, unit: "" },
+            MV_REL_RSC3: { value: 90, unit: "" },
+            MV_REL_RSC4: { value: 95, unit: "" },
+            SV6106_STS_SUP: { value: 1, unit: "" },
+            SV6109_STS_SUP: { value: 1, unit: "" },
+            SV6112_STS_SUP: { value: 1, unit: "" },
+            SV6110_STS_SUP: { value: 1, unit: "" },
+            SV6107_STS_SUP: { value: 1, unit: "" },
+            SV6108_STS_SUP: { value: 1, unit: "" },
+            BBA1_STS_SUP: { value: 1, unit: "" },
+          };
+
+          // Atualização periódica dos valores fixos nas tags
+          function atualizarTags(tagMap) {
+            for (const [id, { value, unit }] of Object.entries(tagMap)) {
+              const tagElement = document.getElementById(id);
+              if (tagElement) {
+                const tagValueElement = tagElement.querySelector(".tag-value");
+                if (tagValueElement) {
+                  tagValueElement.textContent = `${value} ${unit}`;
+                }
+              }
+            }
+          }
+
+          // Função para atualizar as cores de acordo com os valores
+          function atualizatagvalor() {
+            const tagElements = [
+              { id: "NVB_01", color: "#00ff00" },
+              { id: "NVB_02", color: "#00ff00" },
+              { id: "NVB_03", color: "#00ff00" },
+              { id: "NVB_04", color: "#00ff00" },
+              { id: "NVB_05", color: "#00ff00" },
+              { id: "PSHH", color: "#00ff00" },
+              { id: "LSH6101", color: "#cccccc" },
+              { id: "LSH6103", color: "#00ff00" },
+            ];
+
+            tagElements.forEach(({ id, color }) => {
+              const tagElement = document.querySelector(`#${id}`);
+              if (tagElement) {
+                const tagValueElement = tagElement.querySelector(".tag-value");
+                if (tagValueElement) {
+                  const tagValue = tagValueElement.textContent.trim(); // Remove espaços extras
+                  if (tagValue === "1" || tagValue === "1 ") {
+                    // Verifica ambas as opções
+                    tagElement.style.backgroundColor = color;
+                  } else {
+                    tagElement.style.backgroundColor = ""; // Restaura cor padrão
+                  }
+                }
+              }
+            });
+          }
+
+          // Função para atualizar o nível do balão
+          function verificanivel() {
+            const tagElement = document.querySelector("#nivel_balao");
+            if (tagElement) {
+              const tagValueElement = tagElement.querySelector(".tag-value");
+              if (tagValueElement && tagValueElement.textContent) {
+                const tagValue = tagValueElement.textContent.trim();
+                const match = tagValue.match(/\d+(\.\d+)?/);
+                if (match) {
+                  const percent = parseFloat(match[0]);
+                  document.getElementById("fill").style.height = percent + "%";
+                  document.getElementById("percentage").innerText =
+                    percent + "%";
+                }
+              }
+            }
+          }
+
+          // Função para alterar o status dos motores com base nos valores
+          function statusmotores() {
+            const motores = [
+              {
+                id: "SV6109",
+                statusId: "SV6109_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "SV6106",
+                statusId: "SV6106_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "SV6112",
+                statusId: "SV6112_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "SV6110",
+                statusId: "SV6110_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "SV6108",
+                statusId: "SV6108_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "SV6107",
+                statusId: "SV6107_STS_SUP",
+                imagens: [
+                  "DamperFechado.png",
+                  "DamperAberto.png",
+                  "DamperFalha.png",
+                ],
+              },
+              {
+                id: "M01",
+                statusId: "M01_STS_SUP",
+                imagens: [
+                  "m12_desligado.png",
+                  "m12_ligado.png",
+                  "m12_falha.png",
+                ],
+              },
+              {
+                id: "M02",
+                statusId: "M02_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+              {
+                id: "M03",
+                statusId: "M03_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+              {
+                id: "M04",
+                statusId: "M04_STS_SUP",
+                imagens: [
+                  "m10_desligado.png",
+                  "m10_ligado.png",
+                  "m10_falha.png",
+                ],
+              },
+              {
+                id: "M05",
+                statusId: "M05_STS_SUP",
+                imagens: [
+                  "m10_desligado.png",
+                  "m10_ligado.png",
+                  "m10_falha.png",
+                ],
+              },
+              {
+                id: "M06",
+                statusId: "M06_STS_SUP",
+                imagens: [
+                  "m10_desligado.png",
+                  "m10_ligado.png",
+                  "m10_falha.png",
+                ],
+              },
+              {
+                id: "M07",
+                statusId: "M07_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M08",
+                statusId: "M08_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M09",
+                statusId: "M09_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M10",
+                statusId: "M10_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M11",
+                statusId: "M11_STS_SUP",
+                imagens: [
+                  "m10_desligado.png",
+                  "m10_ligado.png",
+                  "m10_falha.png",
+                ],
+              },
+              {
+                id: "M12",
+                statusId: "M12_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M13",
+                statusId: "M13_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "M14",
+                statusId: "M14_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+              {
+                id: "M15",
+                statusId: "M15_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+              {
+                id: "M18",
+                statusId: "M18_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+              {
+                id: "M19",
+                statusId: "M19_STS_SUP",
+                imagens: [
+                  "m06_desligado.png",
+                  "m06_ligado.png",
+                  "m06_falha.png",
+                ],
+              },
+              {
+                id: "BBA1",
+                statusId: "BBA1_STS_SUP",
+                imagens: [
+                  "m02_desligado.png",
+                  "m02_ligado.png",
+                  "m02_falha.png",
+                ],
+              },
+            ];
+
+            motores.forEach(({ id, statusId, imagens }) => {
+              const motorElement = document.getElementById(id);
+              const statusElement = document.getElementById(statusId);
+              if (motorElement && statusElement) {
+                const status = parseInt(statusElement.textContent.trim(), 10);
+                motorElement.src = `./img/${
+                  imagens[status] || "DamperFechado.png"
+                }`;
+              }
+            });
+          }
+
+          // Função para alertas com base nas variáveis
+          function alertas_variaveis() {
+            const variaveis = [
+              {
+                id: "pressao",
+                limite: 10,
+                corAlerta: "yellow",
+                corNormal: "rgb(7, 241, 15)",
+              },
+              {
+                id: "LIT3101",
+                limite: 50,
+                corAlerta: "yellow",
+                corNormal: "rgb(7, 241, 15)",
+              },
+              {
+                id: "TT7101",
+                limite: 60,
+                corAlerta: "yellow",
+                corNormal: "rgb(7, 241, 15)",
+              },
+              // Adicione as variáveis e limites aqui
+            ];
+
+            variaveis.forEach(({ id, limite, corAlerta, corNormal }) => {
+              const el = document.getElementById(id);
+              if (el) {
+                const textContent = el
+                  .querySelector(".tag-value")
+                  ?.textContent.trim();
+                const valor = parseFloat(textContent?.match(/[\d.]+/)?.[0]);
+                if (valor <= limite) {
+                  el.style.backgroundColor = corAlerta;
+                } else {
+                  el.style.backgroundColor = corNormal;
+                }
+              }
+            });
+          }
+// Controle de intervalos ativos (evita múltiplos intervalos para a mesma variável)
+const intervalosAtivos = {};
+
+// Função para atualizar valores gradativamente
+function atualizarValor(variavel, novoValor) {
+  // Verifica se a variável existe no objeto
+  if (valoresFixos.hasOwnProperty(variavel)) {
+    const valorAtual = parseFloat(valoresFixos[variavel].value); // Valor atual
+    const incremento = (novoValor - valorAtual) / 500; // Incremento em 50 passos
+    let valorIntermediario = valorAtual; // Começa no valor atual
+    const tempo = 5000 / 100; // 5 segundos divididos em 50 passos
+
+    // Cancela qualquer intervalo existente para esta variável
+    if (intervalosAtivos[variavel]) {
+      clearInterval(intervalosAtivos[variavel]);
+    }
+
+    // Função para atualizar gradualmente
+    intervalosAtivos[variavel] = setInterval(() => {
+      valorIntermediario += incremento; // Incrementa o valor
+
+      // Atualiza o valor no objeto
+      valoresFixos[variavel].value = valorIntermediario.toFixed(2);
+
+      // Atualiza a exibição na interface (se necessário)
+      const inputElement = document.querySelector(`[data-id="${variavel}"]`);
+      if (inputElement) {
+        inputElement.value = valorIntermediario.toFixed(2);
+      }
+
+      console.log(`Atualizando ${variavel}: ${valorIntermediario.toFixed(2)}`);
+
+      // Verifica se atingiu ou ultrapassou o valor final
+      if (
+        (incremento > 0 && valorIntermediario >= novoValor) ||
+        (incremento < 0 && valorIntermediario <= novoValor)
+      ) {
+        valoresFixos[variavel].value = novoValor; // Ajusta para o valor final
+        clearInterval(intervalosAtivos[variavel]); // Para o intervalo
+        delete intervalosAtivos[variavel]; // Remove o controle do intervalo
+
+        console.log(`Valor final de ${variavel}: ${novoValor}`);
+
+        // Salva as alterações após atingir o valor final
+        salvarAlteracoes(variavel, novoValor);
+      }
+    }, tempo);
+  } else {
+    console.error(`Variável ${variavel} não encontrada.`);
+  }
+}
+
+// Função para salvar as alterações
+function salvarAlteracoes(id, valor) {
+  console.log(`Salvando ${id} com valor final: ${valor}`);
+  // Aqui você pode adicionar lógica de backend para persistir o valor
+}
+
+function AtualizaM2(SP){
+
+  atualizarValor("MV_REL_M02",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM3(SP){
+
+  atualizarValor("MV_REL_M03",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM5(SP){
+
+  atualizarValor("MV_REL_M05",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM6(SP){
+
+  atualizarValor("MV_REL_M06",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM7(SP){
+
+  atualizarValor("MV_REL_RSC1",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM8(SP){
+
+  atualizarValor("MV_REL_RSC2",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM9(SP){
+
+  atualizarValor("MV_REL_RSC3",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+function AtualizaM10(SP){
+
+  atualizarValor("MV_REL_RSC4",(SP/valoresFixos["PIT_3101_MV"].value)*100)
+
+}
+
+let depressaoFornalha = -4; // Inicializa com a depressão padrão
+let velocidadeAtualExaustor = 0; // Velocidade atual do exaustor
+let velocidadeAtualPrimario = 0; // Velocidade atual do ar primário
+let velocidadeAtualSecundario = 0; // Velocidade atual do ar secundário
+let tendenciaPressao = 0; // Tendência para simular flutuações
+
+function entradadear() {
+  // Definição das velocidades-alvo
+  const velocidadePrimarioAlvo = valoresFixos["MV_REL_M02"].value;
+  const velocidadeSecundarioAlvo = valoresFixos["MV_REL_M03"].value;
+  const somaAr = velocidadePrimarioAlvo + velocidadeSecundarioAlvo;
+  const velocidadeExaustorAlvo = somaAr * 2;
+
+  // Ajuste gradual do ar primário
+  if (velocidadeAtualPrimario < velocidadePrimarioAlvo) {
+    velocidadeAtualPrimario += 0.5; // Incremento do ar primário
+  } else if (velocidadeAtualPrimario > velocidadePrimarioAlvo) {
+    velocidadeAtualPrimario -= 0.5; // Decremento do ar primário
+  }
+
+  // Ajuste gradual do ar secundário
+  if (velocidadeAtualSecundario < velocidadeSecundarioAlvo) {
+    velocidadeAtualSecundario += 0.3; // Incremento do ar secundário
+  } else if (velocidadeAtualSecundario > velocidadeSecundarioAlvo) {
+    velocidadeAtualSecundario -= 0.3; // Decremento do ar secundário
+  }
+
+  // Ajuste gradual do exaustor
+  if (velocidadeAtualExaustor < velocidadeExaustorAlvo) {
+    velocidadeAtualExaustor += 1; // Incremento do exaustor
+  } else if (velocidadeAtualExaustor > velocidadeExaustorAlvo) {
+    velocidadeAtualExaustor -= 1; // Decremento do exaustor
+  }
+
+  // Simula a pressão da fornalha com base nas diferenças e flutuações
+  const pressaoCalculada = velocidadeAtualExaustor - (velocidadeAtualPrimario + velocidadeAtualSecundario) * 2;
+
+  // Introduz flutuações antes de estabilizar
+  if (depressaoFornalha > -4) {
+    tendenciaPressao -= 0.2; // Pressão tende a cair
+  } else if (depressaoFornalha < -4) {
+    tendenciaPressao += 0.2; // Pressão tende a subir
+  }
+
+  // Amortecimento para estabilizar as flutuações
+  tendenciaPressao *= 0.85;
+
+  // Atualiza a depressão da fornalha com tendência
+  depressaoFornalha = pressaoCalculada + tendenciaPressao;
+
+  // Limita a depressão em um intervalo seguro
+  depressaoFornalha = Math.max(-10, Math.min(depressaoFornalha, 0)); // Intervalo de -10 a 0
+
+  // Atualiza os valores no sistema
+  atualizarValor("PIT_6101_MV", velocidadeAtualExaustor); // Velocidade do exaustor
+  atualizarValor("MV_REL_M02", velocidadeAtualPrimario); // Velocidade do ar primário
+  atualizarValor("MV_REL_M03", velocidadeAtualSecundario); // Velocidade do ar secundário
+  atualizarValor("PIT_6101_PV", depressaoFornalha); // Pressão da fornalha
+}
+
+// Chama a função periodicamente
+setInterval(entradadear, 100); // Atualizações a cada 100ms
+
+
+function statusMotor (status){
+  valoresFixos[status].value = valoresFixos[status].value === 1 ?  0:1
+}
+
+
+function statusM01_STS_SUP(){
+  statusMotor("M01_STS_SUP")
+}
+
+
+function alteraeletrodo (key){
+  valoresFixos[key].value = valoresFixos[key].value === "1 "  ? "0":"1 "
+}
+
+function nvBl01 (){
+  alteraeletrodo("NVB_01")
+}
+
+function nvBl02 (){
+  alteraeletrodo("NVB_02")
+}
+
+function nvBl03 (){
+  alteraeletrodo("NVB_03")
+}
+
+function nvBl04 (){
+  alteraeletrodo("NVB_04")
+}
+
+function nvBl05 (){
+  alteraeletrodo("NVB_05")
+}
+
+function pshh (){
+  alteraeletrodo("PSHH")
+}
+
+
+
+
+
+// Inicialização e atualizações periódicas
+document.addEventListener("DOMContentLoaded", () => {
+  setInterval(() => {
+    atualizarTags(valoresFixos); // Atualiza tags na interface
+    atualizatagvalor(); // Atualiza as cores de tags específicas
+    verificanivel(); // Atualiza o nível de um elemento gráfico
+    statusmotores(); // Atualiza os status dos motores
+    alertas_variaveis(); // Gera alertas com base nos valores
+    entradadear()
+  
+  }, 1000);
+});
+
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
