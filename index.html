@@ -24,14 +24,30 @@
   flex-direction: column;
   align-items: center;
       border: solid 1px gray;
+      width:200px;
+      heigth:200px
+    }
+
+    .container{
+      display:flex;
+     gap: 10px;
+  flex-wrap: wrap;
     }
     
   </style>
 <body>
+  <div class="container">
   <div class="central">
-  <h1 id="titulo" >Geriba Energy Arc</h1>
-  <div id="dados">Carregando dados...</div>
-</div>
+    <h1 id="titulo" >Geriba Energy Arc</h1>
+    <div id="dados">Carregando dados...</div>
+  </div>
+
+    <div class="central">
+    <h1 id="titulo" >Geriba Energy Arc</h1>
+    <div id="dados">Carregando dados...</div>
+  </div>
+
+    </div>
   <script>
     async function buscarDados() {
       try {
