@@ -3,29 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teste Requisição</title>
+  <title>Visualizar Dados</title>
 </head>
 <body>
-  <h1>Teste de Requisição</h1>
+  <h1>Dados Recebidos</h1>
   <div id="dados">Carregando dados...</div>
 
   <script>
-    // Função para buscar os dados do endpoint correto
     async function buscarDados() {
       try {
-        const response = await fetch('https://simuladorcaldeira.vercel.app/api/receber-dados');
+        const response = await fetch('https://simuladorcaldeira.vercel.app/api/receber-dados', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
         if (!response.ok) {
-          throw new Error('Erro na requisição');
+          throw new Error('Erro ao buscar os dados');
         }
+
         const dados = await response.json();
-        // Atualizar o conteúdo do <div> com os dados recebidos
-        document.getElementById('dados').innerHTML = JSON.stringify(dados, null, 2);
+
+        // Atualize o conteúdo da página com os dados recebidos
+        document.getElementById('dados').innerHTML = `
+          <p>Temperatura: ${dados.temperatura || 'N/A'}°C</p>
+          <p>Pressão: ${dados.pressao || 'N/A'} bar</p>
+          <p>Nível: ${dados.nivel || 'N/A'}%</p>
+        `;
       } catch (error) {
-        document.getElementById('dados').textContent = `Erro ao buscar os dados: ${error.message}`;
+        document.getElementById('dados').textContent = `Erro: ${error.message}`;
       }
     }
 
-    // Chama a função ao carregar a página
+    // Chama a função para buscar os dados ao carregar a página
     document.addEventListener('DOMContentLoaded', buscarDados);
   </script>
 </body>
