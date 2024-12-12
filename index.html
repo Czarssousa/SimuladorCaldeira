@@ -27,9 +27,9 @@
 
         // Atualize o conteúdo da página com os dados recebidos
         document.getElementById('dados').innerHTML = `
-          <p>Temperatura: ${dados.temperatura || 'N/A'}°C</p>
-          <p>Pressão: ${dados.pressao || 'N/A'} bar</p>
-          <p>Vazão: ${dados.vazao || 'N/A'}ton/h</p>
+          <p>Temperatura: ${dados.temperatura: || 'N/A'}°C</p>
+          <p>Pressão: ${dados.pressao: || 'N/A'} bar</p>
+          <p>Vazão: ${dados.vazao: || 'N/A'}ton/h</p>
         `;
       } catch (error) {
         document.getElementById('dados').textContent = `Erro: ${error.message}`;
