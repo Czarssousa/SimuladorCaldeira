@@ -1,11 +1,17 @@
 export default function handler(req, res) {
+  try {
     if (req.method === 'POST') {
-        const dados = req.body; // Receber dados enviados pelo Node-RED
-        console.log('Dados recebidos:', dados);
-
-        // Você pode processar ou armazenar os dados aqui, se necessário
-        res.status(200).json({ message: 'Dados recebidos com sucesso!', dados });
+      // Processa os dados enviados
+      console.log('Dados recebidos:', req.body);
+      
+      // Retorna uma resposta de sucesso
+      res.status(200).json({ message: 'Dados recebidos com sucesso!' });
     } else {
-        res.status(405).json({ message: 'Método não permitido' });
+      // Retorna erro para métodos diferentes de POST
+      res.status(405).json({ message: 'Método não permitido' });
     }
+  } catch (error) {
+    console.error('Erro no servidor:', error);
+    res.status(500).json({ message: 'Erro interno no servidor' });
+  }
 }
