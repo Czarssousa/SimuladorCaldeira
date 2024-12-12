@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualizar Dados</title>
+  <title>Atualização Automática</title>
 </head>
 <body>
   <h1>Dados Recebidos</h1>
@@ -36,7 +36,10 @@
       }
     }
 
-    // Chama a função para buscar os dados ao carregar a página
+    // Atualiza os dados a cada 5 segundos
+    setInterval(buscarDados, 5000);
+
+    // Chama a função ao carregar a página
     document.addEventListener('DOMContentLoaded', buscarDados);
   </script>
 </body>
